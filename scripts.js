@@ -1,4 +1,5 @@
 let yourName = document.querySelector("#yourName");
+let errorBox = document.querySelector(".error-box");
 let cadList = [];
 
 
@@ -7,7 +8,7 @@ function cad( ) {
         console.log("conglatulations");
         saveCad( );
     } else {
-        console.log("error")
+        errorBox.innerHTML = `preencha os dados e tente novamente`;
     }
 }
 
@@ -23,6 +24,10 @@ function saveCad( ) {
             <h1 class="login-title">Login</h1>
 
             <div class="inputs container text-center">
+                    <div class="row">
+                        <p class="text-center error-box"></p>
+                    </div>                        
+
 
                         <div class="row">
                             <label for="logName">Name</label>
@@ -50,7 +55,9 @@ function backToCad( ) {
             <div class="cad-container">
                 <div class="container">
                     <h1 class="text-center cad-title">Cadastre-se</h1>
-
+                    <div class="row">
+                        <p class="text-center error-box"></p>
+                    </div>
 
                     <div class="inputs container text-center">
                         <div class="row">
@@ -68,6 +75,7 @@ function backToCad( ) {
 
 
 function logar( ) {
+    let errorBox = document.querySelector(".error-box");
     let logName = document.querySelector("#logName");
     for( let i = 0; i < cadList.length; i++ ) {
         
@@ -75,7 +83,7 @@ function logar( ) {
             resultFinal( );
     
         } else {
-            console.log("error");
+            errorBox.innerHTML = `Usuário não encontrado`;
         }
 
     }
@@ -84,5 +92,7 @@ function logar( ) {
 
 
 function resultFinal( ) {
+    let errorBox = document.querySelector(".error-box");
+    errorBox.innerHTML = `vc está logado`;
     console.log("conglatulations");
 }
